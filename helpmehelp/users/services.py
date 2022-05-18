@@ -18,13 +18,27 @@ def create_user(
     name: str,
     email: str,
     password: str,
+    age: int,
+    blood: str,
+    phone: int,
+    address: str,
+    nat_ID: int,
 ) -> User:
     try:
         email = BaseUserManager.normalize_email(email)
         validate_email(email)
 
         # Readying data for validation
-        user: User = User(username=username, name=name, email=email)
+        user: User = User(
+            username=username,
+            name=name,
+            email=email,
+            age=age,
+            blood=blood,
+            phone=phone,
+            address=address,
+            nat_ID=nat_ID,
+        )
 
         # Validate users password
         validate_password(password, user)
