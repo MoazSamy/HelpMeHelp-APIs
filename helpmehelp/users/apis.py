@@ -13,6 +13,7 @@ class CreateUserAPI(APIView):
         username = serializers.CharField()
         name = serializers.CharField()
         password = serializers.CharField()
+        email = serializers.CharField()
 
     def post(self, request):
         serializer = self.InputSerializer(data=request.data)
@@ -23,9 +24,19 @@ class CreateUserAPI(APIView):
 
 
 class UserDetailsAPI(APIView):
+    # Need to add some type of authentication instead of this
+    permission_classes = [permissions.AllowAny]
+
     class OutputSerializer(serializers.Serializer):
         username = serializers.CharField()
         name = serializers.CharField()
+        email = serializers.EmailField()
+        age = serializers.CharField()
+        phone = serializers.CharField()
+        blood = serializers.CharField()
+        address = serializers.CharField()
+        nat_ID = serializers.CharField()
+        is_verified = serializers.BooleanField()
 
     def get(self, request, user_id):
         user = get_user(user_id)

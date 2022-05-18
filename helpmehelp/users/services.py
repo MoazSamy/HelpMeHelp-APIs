@@ -13,10 +13,13 @@ from helpmehelp.users.models import User
 
 
 def create_user(
-    self, *, username: str, name: str, email: str, password: str, **other_fields
+    *,
+    username: str,
+    name: str,
+    email: str,
+    password: str,
 ) -> User:
     try:
-        username = User.normalize_username(username)
         email = BaseUserManager.normalize_email(email)
         validate_email(email)
 

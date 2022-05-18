@@ -18,13 +18,13 @@ class User(AbstractUser):
     ]
     name = models.CharField(_("User Full Name"), max_length=155)
     username = models.CharField(_("Username"), max_length=155, unique=True)
-    email = models.EmailField(_("Email"), max_length=155, unique=True)
-    age = models.PositiveSmallIntegerField(null=True)
-    phone = models.CharField(_("Phone Number"), max_length=12, null=True)
+    email = models.EmailField(_("Email"), max_length=155, unique=True, blank=True)
+    age = models.PositiveSmallIntegerField(null=True, blank=True)
+    phone = models.CharField(_("Phone Number"), max_length=12, null=True, blank=True)
     blood = models.CharField(
-        _("Blood Type"), max_length=3, choices=blood_types, null=True
+        _("Blood Type"), max_length=3, choices=blood_types, null=True, blank=True
     )
-    address = models.CharField(_("User Address"), max_length=200, null=True)
+    address = models.CharField(_("User Address"), max_length=200, null=True, blank=True)
     nat_ID = models.CharField(
         _("National ID"), max_length=14, unique=True, null=True, blank=True
     )
