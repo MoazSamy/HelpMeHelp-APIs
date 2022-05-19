@@ -34,12 +34,6 @@ class User(AbstractUser):
     first_name = None
     last_name = None
 
-    def get_absolute_url(self):
-        """Get url for user's detail view.
-        Returns:
-            str: URL for user detail.
-        """
-        return reverse("users:detail", kwargs={"username": self.username})
+    def get_absolute_url(self) -> str:
 
-    def __str__(self):
-        return self.username
+        return reverse("users:get_user", args={str(self.id)})
