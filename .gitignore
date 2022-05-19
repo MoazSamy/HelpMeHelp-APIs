@@ -278,4 +278,5 @@ helpmehelp/media/
 .env
 .envs/*
 !.envs/.local/
-local.yml
+
+.vscode
