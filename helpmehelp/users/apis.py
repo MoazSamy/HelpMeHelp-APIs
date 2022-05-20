@@ -29,9 +29,6 @@ class CreateUserAPI(APIView):
 
 
 class UserDetailsAPI(APIView):
-    # Need to add some type of authentication instead of this
-    permission_classes = [permissions.AllowAny]
-
     class OutputSerializer(serializers.Serializer):
         username = serializers.CharField()
         name = serializers.CharField()
