@@ -81,6 +81,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "helpmehelp.users",
     "helpmehelp.common",
+    "helpmehelp.authentication",
+    "helpmehelp.apis"
     # "helpmehelp.orgs",
     # Your stuff: custom apps go here
 ]
@@ -305,6 +307,7 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
