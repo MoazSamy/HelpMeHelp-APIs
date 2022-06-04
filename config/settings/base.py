@@ -82,8 +82,8 @@ LOCAL_APPS = [
     "helpmehelp.users",
     "helpmehelp.common",
     "helpmehelp.authentication",
-    "helpmehelp.apis"
-    # "helpmehelp.orgs",
+    "helpmehelp.apis",
+    "helpmehelp.orgs",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
