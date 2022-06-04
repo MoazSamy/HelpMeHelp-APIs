@@ -66,8 +66,16 @@ def update_user(
     if user != performed_by:
         raise PermissionDenied()
 
+    # Add more fields here if needed
+    non_side_effect_fields = ["name", "phone"]
+
     # Updating user data in DB
     user, _ = model_update(
         instance=user,
+        fields=non_side_effect_fields,
         data=data,
     )
+
+    user.save()
+
+    return user
