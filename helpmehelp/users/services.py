@@ -14,7 +14,6 @@ from helpmehelp.users.models import User
 
 def create_user(
     *,
-    username: str,
     name: str,
     email: str,
     password: str,
@@ -30,7 +29,6 @@ def create_user(
 
         # Readying data for validation
         user: User = User(
-            username=username,
             name=name,
             email=email,
             age=age,

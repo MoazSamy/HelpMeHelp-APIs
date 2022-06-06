@@ -4,6 +4,8 @@ from django.urls import reverse
 from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as _
 
+from helpmehelp.users.usermanager import CustomUserManager
+
 
 class User(AbstractUser):
     blood_types = [
@@ -17,7 +19,6 @@ class User(AbstractUser):
         ("AB-", "AB Negative"),
     ]
     name = models.CharField(_("User Full Name"), max_length=155)
-    username = models.CharField(_("Username"), max_length=155, unique=True)
     email = models.EmailField(_("Email"), max_length=155, unique=True, blank=True)
     age = models.PositiveSmallIntegerField(null=True, blank=True)
     phone = models.CharField(_("Phone Number"), max_length=12, null=True, blank=True)
@@ -30,9 +31,12 @@ class User(AbstractUser):
     )
     is_verified = models.BooleanField(_("Is user verified by email"), default=False)
     date_joined = models.DateTimeField(default=now)
-
+    USERNAME_FIELD = "email"
+    username = None
     first_name = None
     last_name = None
+    REQUIRED_FIELDS = []
+    objects = CustomUserManager()
 
     def get_absolute_url(self) -> str:
 

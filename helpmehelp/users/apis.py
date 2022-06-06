@@ -10,7 +10,6 @@ class CreateUserAPI(APIView):
     permission_classes = [permissions.AllowAny]
 
     class InputSerializer(serializers.Serializer):
-        username = serializers.CharField()
         name = serializers.CharField()
         password = serializers.CharField()
         email = serializers.CharField()
@@ -30,7 +29,6 @@ class CreateUserAPI(APIView):
 
 class UserDetailsAPI(APIView):
     class OutputSerializer(serializers.Serializer):
-        username = serializers.CharField()
         name = serializers.CharField()
         email = serializers.EmailField()
         age = serializers.CharField()
