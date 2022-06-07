@@ -8,7 +8,6 @@ class UserTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         create_user(
-            username="moazsamy99",
             name="Moaz Samy",
             email="admin@example.com",
             password="difficult21",
@@ -27,11 +26,6 @@ class UserTests(TestCase):
     def test_user_get_absolute_url(self):
         user = User.objects.get(id=1)
         self.assertEqual(user.get_absolute_url(), "/users/1/")
-
-    def test_username(self):
-        user = User.objects.get(id=1)
-        expected_name = user.username
-        self.assertEqual(str(user), expected_name)
 
     def test_is_verified_default_false(self):
         user = User.objects.get(id=1)
