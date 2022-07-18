@@ -13,11 +13,11 @@ class CreateUserAPI(APIView):
         name = serializers.CharField()
         password = serializers.CharField()
         email = serializers.CharField()
-        age = serializers.CharField()
-        phone = serializers.CharField()
-        blood = serializers.CharField()
-        address = serializers.CharField()
-        nat_ID = serializers.CharField()
+        age = serializers.CharField(allow_blank=True, allow_null=True)
+        phone = serializers.CharField(allow_blank=True, allow_null=True)
+        blood = serializers.CharField(allow_blank=True, allow_null=True)
+        address = serializers.CharField(allow_blank=True, allow_null=True)
+        nat_ID = serializers.CharField(allow_blank=True, allow_null=True)
 
     def post(self, request):
         serializer = self.InputSerializer(data=request.data)

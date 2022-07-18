@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, Optional
 
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import BaseUserManager
@@ -17,11 +17,11 @@ def create_user(
     name: str,
     email: str,
     password: str,
-    age: int,
-    blood: str,
-    phone: int,
-    address: str,
-    nat_ID: int,
+    age: Optional[int],
+    blood: Optional[str],
+    phone: Optional[int],
+    address:  Optional[str],
+    nat_ID: Optional[int],
 ) -> User:
     try:
         email = BaseUserManager.normalize_email(email)
